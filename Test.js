@@ -1,4 +1,3 @@
-
 /*jslint devel:true, sloppy:true, browser:true, white:true*/
 /*global $, API, Room, Playback, Models*/
 
@@ -15,7 +14,7 @@ var o_tmp = {};
 var b_hasModRights = true;
 var o_autoSkipOpts = {
   strictMode: false,
-	maxSongLength: 6, // in mins
+	maxSongLength:06, // in mins
 	i_timerID: null,
 	f_autoSkip: f_long
 };

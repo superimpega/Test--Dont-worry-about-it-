@@ -1,5 +1,4 @@
 
-
 /*jslint devel:true, sloppy:true, browser:true, white:true*/
 /*global $, API, Room, Playback, Models*/
 
@@ -16,7 +15,7 @@ var o_tmp = {};
 var b_hasModRights = true;
 var o_autoSkipOpts = {
   strictMode: false,
-	maxSongLength: 10, // in mins
+	maxSongLength: 06, // in mins
 	i_timerID: null,
 	f_autoSkip: f_long
 };
@@ -24,7 +23,7 @@ var o_autoSkipOpts = {
 function f_foxbotInit() { // init foxbot, gets called at the very end
 	window.setTimeout(function(){API.sendChat('/me Superbot Online!');}, 5000); 
 
-    b_hasModRights = API.getSelf().moderator;
+    b_hasModRights = API.getSelf().ambassador;
     
 	// now all the event listeners
 	API.addEventListener(API.USER_JOIN, join);
@@ -36,7 +35,7 @@ function f_foxbotInit() { // init foxbot, gets called at the very end
     
 
 	// mute the player
-	Playback.setVolume(0);
+	Playback.setVolume(10);
 }
 
 
@@ -53,7 +52,7 @@ function leave(user)
 
 function f_curate(data)
 { 
-	API.sendChat("/me " + data.user.username + " Loves! this track.");
+	API.sendChat("/me " + data.user.username + " Loves this track!");
 }
     
 function f_commands(data) {
@@ -72,7 +71,7 @@ function f_commands(data) {
 function f_skip(data) {
     API.sendChat('/me Current DJ has been skipped by operator!');
     window.setTimeout(function(){new ModerationForceSkipService(Models.room.data.historyID);}, 1000);
-	window.setTimeout(function(){API.sendChat("/me [foxbot] Your song got skipped because it was either not on genre, overplayed or (the outro) was too long.");}, 2000);
+	window.setTimeout(function(){API.sendChat("/me Your song got skipped because it was either not on genre, overplayed or (the outro) was too long.");}, 2000);
 }
 function f_long() {
 	API.sendChat('@'+o_tmp.username+' Sorry, your song is over the allowed time limit.');
@@ -158,7 +157,7 @@ function f_test(data) {
 	API.sendChat('/me Systems are online and functional! '+s);
 }
 function f_reload(data) {
-    API.sendChat('/me System Reloading!');
+    API.sendChat('/me Reloading config!');
     window.setTimeout(function(){location.reload();}, 1000);
 }
 
@@ -220,11 +219,11 @@ var o_chatcmds = {
             f: f_cookie,
             needsPerm: false
         },
-		'rapes foxbot': {
+		'rapes super': {
             f: f_rape,
             needsPerm: false
         },
-		'hugs foxbot': {
+		'hugs super': {
             f: f_hug,
             needsPerm: false
         },
@@ -289,13 +288,13 @@ function f_checkChat(data) {
             if(o.needsPerm)
             {
                 if(o.needsLocalPerm == true) {
-                    API.sendChat('@'+data.from+': Need moderator rights, sorry.');
+                    API.sendChat('@'+data.from+': Insufficient rights, sorry.');
                     return;
                 }
                 if(API.getUser(data.fromID).moderator || API.getUser(data.fromID).owner) {
                     o.f(data);
                 } else {
-                    API.sendChat('@'+data.from+': Im sorry Dave, but Im afraid I cant let you do that.');
+                    API.sendChat('@'+data.from+': Im sorry, but Im afraid I cant let you do that.');
                 }
             } else if(!o.needsPerm) {
                 o.f(data);
@@ -310,7 +309,7 @@ function f_msgMatches(s) {
         if(!b_hasModRights) {
             
             if(cmd[0] == '/') { // skip non-slash commands, as they might interfere with other bots
-                cmdNew = 'fbot' + cmd;
+                cmdNew = 'sbot' + cmd;
             } else {
                 continue;
             }

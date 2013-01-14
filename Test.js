@@ -7,7 +7,13 @@ var o_settings = {
     autoQueue: true,
     welcomeMsg: true,
     goodbyeMsg: true,
-    rules: '[Insert Rules Here]'
+    rules: 'Download the Room script! http://userscripts.org/scripts/show/156341
+1. You can play anything thats electro music, except for hardstyle.
+2. Dont spam And English Only, Will result in kick
+3. Tracks should not be longer than 6:00. Throw in radio edits if possible.
+4. Tracks below 1 Woot/Meh ratio will be skipped.
+5. Dont complain if we lock the booth or skip a track.
+6. Links and promotions has to be approved by staff.'
 };
 var a_jokes = [];
 var o_tmp = {};

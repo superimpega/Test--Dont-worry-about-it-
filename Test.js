@@ -1,4 +1,3 @@
-
 /*jslint devel:true, sloppy:true, browser:true, white:true*/
 /*global $, API, Room, Playback, Models*/
 
@@ -23,7 +22,7 @@ var o_autoSkipOpts = {
 function f_foxbotInit() { // init foxbot, gets called at the very end
 	window.setTimeout(function(){API.sendChat('/me Superbot Online!');}, 5000); 
 
-    b_hasModRights = API.getSelf().ambassador;
+    b_hasModRights = API.getSelf().bouncer;
     
 	// now all the event listeners
 	API.addEventListener(API.USER_JOIN, join);
@@ -141,7 +140,7 @@ function f_rule(data) {
         API.sendChat('@'+data.from+' Rules: '+o_settings.rules);
 }
 function f_about(data) {
-		API.sendChat('/me Hello, I am superbot. I am here to help the moderators/*');
+		API.sendChat('/me Hello, I am superbot. I am here to help the staff in the Playhouse!/*');
 }
 function f_brb(data) {
 		API.sendChat('@'+data.from+' Come back soon!');
@@ -309,7 +308,7 @@ function f_msgMatches(s) {
         if(!b_hasModRights) {
             
             if(cmd[0] == '/') { // skip non-slash commands, as they might interfere with other bots
-                cmdNew = 'sbot' + cmd;
+                cmdNew = '' + cmd;
             } else {
                 continue;
             }

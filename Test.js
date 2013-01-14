@@ -14,7 +14,7 @@ var o_tmp = {};
 var b_hasModRights = true;
 var o_autoSkipOpts = {
   strictMode: false,
-	maxSongLength:06, // in mins
+	maxSongLength:6, // in mins
 	i_timerID: null,
 	f_autoSkip: f_long
 };
@@ -860,7 +860,7 @@ A. In case they get a hole in one!\
 Q. What did the the tie say to the hat?\
 A. You go on a head, I'll just hang around!\
 ","\
-Q. wut did knif prty sey 2 justn bibr??\
+Q. wut did knif prty sey 2 justn bibr?\
 A. fgt.\
 "];
 

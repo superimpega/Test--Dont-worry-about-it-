@@ -7,7 +7,7 @@ var o_settings = {
     autoQueue: true,
     welcomeMsg: true,
     goodbyeMsg: true,
-    rules: 'Download the Room script! http://userscripts.org/scripts/show/156341, Rules are in the INFO!
+    rules: 'Download the Room script! http://userscripts.org/scripts/show/156341, Rules are in the INFO!'
     };
 var a_jokes = [];
 var o_tmp = {};

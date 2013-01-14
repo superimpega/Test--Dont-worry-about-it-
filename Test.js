@@ -860,8 +860,8 @@ A. In case they get a hole in one!\
 Q. What did the the tie say to the hat?\
 A. You go on a head, I'll just hang around!\
 ","\
-Q. What would you call two banana skins?\
-A. A pair of slippers.\
+Q. wut did knif prty sey 2 justn bibr??\
+A. fgt.\
 "];
 
 f_foxbotInit();

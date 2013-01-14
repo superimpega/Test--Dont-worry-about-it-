@@ -1,5 +1,4 @@
 
-
 /*jslint devel:true, sloppy:true, browser:true, white:true*/
 /*global $, API, Room, Playback, Models*/
 
@@ -16,7 +15,7 @@ var o_tmp = {};
 var b_hasModRights = true;
 var o_autoSkipOpts = {
   strictMode: false,
-	maxSongLength: 10, // in mins
+	maxSongLength: 6, // in mins
 	i_timerID: null,
 	f_autoSkip: f_long
 };
@@ -36,7 +35,7 @@ function f_foxbotInit() { // init foxbot, gets called at the very end
     
 
 	// mute the player
-	Playback.setVolume(0);
+	Playback.setVolume(10);
 }
 
 
@@ -53,7 +52,7 @@ function leave(user)
 
 function f_curate(data)
 { 
-	API.sendChat("/me " + data.user.username + " Loves! this track.");
+	API.sendChat("/me " + data.user.username + " Loves this track!");
 }
     
 function f_commands(data) {

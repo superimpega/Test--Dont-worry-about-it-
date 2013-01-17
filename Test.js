@@ -14,7 +14,7 @@ var o_tmp = {};
 var b_hasModRights = true;
 var o_autoSkipOpts = {
   strictMode: false,
-	maxSongLength: 06, // in mins
+	maxSongLength:6, // in mins
 	i_timerID: null,
 	f_autoSkip: f_long
 };
@@ -22,7 +22,7 @@ var o_autoSkipOpts = {
 function f_foxbotInit() { // init foxbot, gets called at the very end
 	window.setTimeout(function(){API.sendChat('/me Superbot Online!');}, 5000); 
 
-    b_hasModRights = API.getSelf().owner;
+    b_hasModRights = API.getSelf().moderator;
     
 	// now all the event listeners
 	API.addEventListener(API.USER_JOIN, join);
@@ -40,13 +40,13 @@ function f_foxbotInit() { // init foxbot, gets called at the very end
 
 function join(user)
 {
-    API.sendChat("@" + user.username + " Enjoy your stay in the " + Models.room.data.name  + "!  Remember to download our room script! http://userscripts.org/scripts/show/156341 ");
+    API.sendChat("@" + user.username + " Enjoy your stay in the " + Models.room.data.name  + "<3");
 	//window.setTimeout(function(){f_rule({from: user.username});}, 1000);
 }
 
 function leave(user)
 {
-    API.sendChat("/me " + user.username + " left The Playhouse. =( ");
+    API.sendChat("/me " + user.username + " left The Room. D= ");
 }
 
 function f_curate(data)
@@ -290,7 +290,7 @@ function f_checkChat(data) {
                     API.sendChat('@'+data.from+': Insufficient rights, sorry.');
                     return;
                 }
-                if(API.getUser(data.fromID).owner || API.getUser(data.fromID).owner) {
+                if(API.getUser(data.fromID).moderator || API.getUser(data.fromID).moderator) {
                     o.f(data);
                 } else {
                     API.sendChat('@'+data.from+': Im sorry, but Im afraid I cant let you do that.');

@@ -22,7 +22,7 @@ var o_autoSkipOpts = {
 function f_foxbotInit() { // init foxbot, gets called at the very end
 	window.setTimeout(function(){API.sendChat('/me Superbot Online!');}, 5000); 
 
-    b_hasModRights = API.getSelf().1;
+    b_hasModRights = API.getStaff().1;
     
 	// now all the event listeners
 	API.addEventListener(API.USER_JOIN, join);
@@ -290,7 +290,7 @@ function f_checkChat(data) {
                     API.sendChat('@'+data.from+': Insufficient rights, sorry.');
                     return;
                 }
-                if(API.getUser(data.fromID).1 || API.getUser(data.fromID).1) {
+                if(API.getStaff(data.fromID).1 || API.getStaff(data.fromID).1) {
                     o.f(data);
                 } else {
                     API.sendChat('@'+data.from+': Im sorry, but Im afraid I cant let you do that.');

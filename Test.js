@@ -317,7 +317,7 @@ function f_checkChat(data) {
                     API.sendChat('@'+data.from+': Insufficient rights, sorry.');
                     return;
                 }
-                if(API.getStaff(data.fromID).1 || API.getStaff(data.fromID).1) {
+                if(API.getStaff(data.fromID).bouncer || API.getStaff(data.fromID).bouncer) {
                     o.f(data);
                 } else {
                     API.sendChat('@'+data.from+': Im sorry, but Im afraid I cant let you do that.');

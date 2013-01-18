@@ -22,7 +22,34 @@ var o_autoSkipOpts = {
 function f_foxbotInit() { // init foxbot, gets called at the very end
 	window.setTimeout(function(){API.sendChat('/me Superbot Online!');}, 5000); 
 
-    b_hasModRights = API.getStaff().1;
+    b_hasModRights = class commandsCommand extends Command
+    init: ->
+        @command='/commands'
+        @parseType='exact'
+        @rankPrivelege='user'
+ 
+    functionality: ->
+        allowedUserLevels = []
+        user = API.getUser(@msgData.fromID)
+        if user.owner
+            allowedUserLevels = ['user','featured','bouncer','mod','manager','host']
+        else if user.permission>=1
+            allowedUserLevels = ['user','featured','bouncer','mod','manager','host']
+        else if user.ambassador
+            allowedUserLevels = ['user','mod','host']
+        else
+            allowedUserLevels = ['user']
+        msg = ''
+        for cmd in cmds
+            c = new cmd('')
+            if c.rankPrivelege in allowedUserLevels
+                if typeof c.command == "string"
+                    msg += c.command + ', '
+                else if typeof c.command == "object"
+                    for cc in c.command
+                        msg += cc + ', '
+        msg = msg.substring(0,msg.length-2)
+        API.sendChat msg
     
 	// now all the event listeners
 	API.addEventListener(API.USER_JOIN, join);

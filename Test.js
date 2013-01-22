@@ -308,7 +308,7 @@ function f_msgMatches(s) {
         if(!b_hasModRights) {
             
             if(cmd[0] == '/') { // skip non-slash commands, as they might interfere with other bots
-                cmdNew = 'fbot' + cmd;
+                cmdNew = '' + cmd;
             } else {
                 continue;
             }

@@ -1,5 +1,4 @@
 
-
 /*jslint devel:true, sloppy:true, browser:true, white:true*/
 /*global $, API, Room, Playback, Models*/
 
@@ -9,14 +8,14 @@ var o_settings = {
     autoQueue: true,
     welcomeMsg: true,
     goodbyeMsg: true,
-    rules: '[Insert Rules Here]'
+    rules: 'Rules? Who needs rules when there is music! Go Crazy!'
 };
 var a_jokes = [];
 var o_tmp = {};
 var b_hasModRights = true;
 var o_autoSkipOpts = {
   strictMode: false,
-	maxSongLength: 10, // in mins
+	maxSongLength:6, // in mins
 	i_timerID: null,
 	f_autoSkip: f_long
 };
@@ -36,7 +35,7 @@ function f_foxbotInit() { // init foxbot, gets called at the very end
     
 
 	// mute the player
-	Playback.setVolume(0);
+	Playback.setVolume(10);
 }
 
 
@@ -48,7 +47,7 @@ function join(user)
 
 function leave(user)
 {
-    API.sendChat("/me " + user.username + " left The Playhouse. =( ");
+    API.sendChat("/me " + user.username + " left The Room. =( ");
 }
 
 function f_curate(data)
@@ -72,7 +71,7 @@ function f_commands(data) {
 function f_skip(data) {
     API.sendChat('/me Current DJ has been skipped by operator!');
     window.setTimeout(function(){new ModerationForceSkipService(Models.room.data.historyID);}, 1000);
-	window.setTimeout(function(){API.sendChat("/me [foxbot] Your song got skipped because it was either not on genre, overplayed or (the outro) was too long.");}, 2000);
+	window.setTimeout(function(){API.sendChat("/me [Superbot] Your song got skipped because it was either not on genre, overplayed or (the outro) was too long.");}, 2000);
 }
 function f_long() {
 	API.sendChat('@'+o_tmp.username+' Sorry, your song is over the allowed time limit.');
@@ -250,7 +249,7 @@ var o_chatcmds = {
         },
 		'/test': {
             f: f_test,
-            needsPerm: true
+            needsPerm: false
         },
 		'/reload': {
             f: f_reload,

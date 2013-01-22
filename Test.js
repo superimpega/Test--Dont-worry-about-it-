@@ -1,4 +1,3 @@
-
 /*jslint devel:true, sloppy:true, browser:true, white:true*/
 /*global $, API, Room, Playback, Models*/
 
@@ -219,11 +218,11 @@ var o_chatcmds = {
             f: f_cookie,
             needsPerm: false
         },
-		'rapes foxbot': {
+		'rapes super': {
             f: f_rape,
             needsPerm: false
         },
-		'hugs foxbot': {
+		'hugs super': {
             f: f_hug,
             needsPerm: false
         },

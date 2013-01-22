@@ -39,8 +39,8 @@ function f_foxbotInit() { // init foxbot, gets called at the very end
 
 
 function join(user)
-{
-    API.sendChat("@" + user.username + " Enjoy your stay in the " + Models.room.data.name  + "!  Remember to download our room script! http://userscripts.org/scripts/show/156341 ");
+
+    API.sendChat("@" + user.username + " Enjoy your stay in the " + Models.room.data.name  + "! Hope you enjoy yourself! ");
 	//window.setTimeout(function(){f_rule({from: user.username});}, 1000);
 }
 

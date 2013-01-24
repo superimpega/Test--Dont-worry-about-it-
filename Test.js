@@ -46,7 +46,7 @@ function join(user)
 
 function leave(user)
 {
-    API.sendChat("/me " + user.username + " left The Room. =( ");
+    API.sendChat("/me Welcome to SoundGlee Radio" );
 }
 
 function f_curate(data)
